@@ -30,8 +30,11 @@
         }
       }
       .detail {
-        display: flex;
-        flex-wrap: wrap;
+        .first {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
       }
       span {
         font-weight: 600;
