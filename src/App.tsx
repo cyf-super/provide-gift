@@ -87,7 +87,7 @@ function App() {
         <section className="container">
           {giftList.map(item => (
             <div key={item.type} className="typeModule">
-              <div className="type">{item.type}</div>
+              <div className="type"><span className='icon' style={{background: `url(/icons/${item.type}.svg) center/100% 100% no-repeat`}}></span>{item.type}</div>
               <div>
                 {item.list.map(data => (
                   <li className="item">
