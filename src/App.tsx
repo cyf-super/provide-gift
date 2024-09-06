@@ -114,7 +114,6 @@ function App() {
         onClose={toggleDrawer}
         direction="right"
         size={'100vw'}
-        className="bla bla bla"
       >
         <div className={styles.drawer} onScroll={e => e.stopPropagation()}>
           <div
