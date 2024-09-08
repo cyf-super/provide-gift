@@ -68,7 +68,7 @@ function App() {
         <section className="yijvBox">
           <div className="yijv">每日一句</div>
           <div
-            dangerouslySetInnerHTML={{ __html: daily[new Date().getDay()] }}
+            dangerouslySetInnerHTML={{ __html: daily[new Date().getDate()] }}
             className="detail"
           ></div>
         </section>
@@ -87,7 +87,15 @@ function App() {
         <section className="container">
           {giftList.map(item => (
             <div key={item.type} className="typeModule">
-              <div className="type"><span className='icon' style={{background: `url(/icons/${item.type}.svg) center/100% 100% no-repeat`}}></span>{item.type}</div>
+              <div className="type">
+                <span
+                  className="icon"
+                  style={{
+                    background: `url(/icons/${item.type}.svg) center/100% 100% no-repeat`
+                  }}
+                ></span>
+                {item.type}
+              </div>
               <div>
                 {item.list.map(data => (
                   <li className="item">
