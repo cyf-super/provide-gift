@@ -1,0 +1,73 @@
+.box {
+  :global {
+    img {
+      width: 100%;
+    }
+    .shopTitle {
+      font-size: 24px;
+      font-weight: 700;
+      color: #2b63e5;
+      margin: 16px 4px 16px;
+    }
+    .header {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 0.5px solid #ebf046;
+      background: #caeaff;
+      border-radius: 12px;
+      padding: 4px 0 0;
+      h2 {
+        display: flex;
+        align-items: center;
+        margin: 8px 0;
+        &::before {
+          content: '';
+          display: inline-block;
+          width: 30px;
+          height: 30px;
+          background: url(/gift.svg) center/100% 100% no-repeat;
+          margin: 0px 6px 2px 0;
+        }
+      }
+      .detail {
+        .first {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+      }
+      span {
+        font-weight: 600;
+      }
+      .start {
+        display: flex;
+        &::after {
+          content: '';
+          display: inline-block;
+          width: 100px;
+          height: 20px;
+          line-height: 20px;
+          background: url(./assets/xingxing.svg) center/contain repeat-x;
+        }
+      }
+    }
+
+    .yijvBox {
+      padding: 12px;
+      border: 2px dashed rgb(187, 187, 222);
+      border-radius: 12px;
+      margin: 16px 0;
+      background: #fff;
+      font-size: 15px;
+      color: #4f4e4e;
+      .yijv {
+        font-size: 17px;
+        color: #2b63e5;
+        margin-bottom: 4px;
+        font-weight: 700;
+      }
+    }
+  }
+}
