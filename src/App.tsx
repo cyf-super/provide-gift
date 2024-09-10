@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
 import styles from './App.module.scss';
-import { Outlet, useNavigate, useLocation } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 
 function App() {
   const navigate = useNavigate();
   const [tabId, setTabId] = useState('home');
-  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     navigate(`/${tabId}`);
