@@ -1,6 +1,15 @@
 .box {
   background: none;
   :global {
+    .progressBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #5fa7ee;
+      transform-origin: 0%;
+    }
     .typesBox {
       margin-top: 10px;
       overflow: hidden;

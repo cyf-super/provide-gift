@@ -3,6 +3,7 @@ import styles from './index.module.scss';
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
 import giftList from '../../data/gift.json';
+import { motion, useScroll, useSpring } from 'framer-motion';
 
 type Item = (typeof giftList)[number]['list'][number];
 
@@ -10,6 +11,13 @@ export default function Source() {
   const [type, setType] = useState('');
   const [item, setItem] = useState<Item>({} as Item);
   const [isOpen, setIsOpen] = useState(false);
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   const toggleDrawer = () => {
     const newState = !isOpen;
@@ -48,6 +56,7 @@ export default function Source() {
   return (
     <>
       <div className={styles.box}>
+        <motion.div className="progressBar" style={{ scaleX }} />
         <section className="typesBox">
           <div className="title">
             <span>类型</span>
