@@ -6,6 +6,18 @@ import giftList from '../../data/gift.json';
 import { motion, useScroll, useSpring } from 'framer-motion';
 
 type Item = (typeof giftList)[number]['list'][number];
+const THEME = [
+  '#0990ff',
+  '#FF8449',
+  '#4CC410',
+  '#e5983a',
+  '#059581',
+  '#8426f0',
+  '#315CF3',
+  '#04db48',
+  '#777b00',
+  '#db5e04'
+];
 
 export default function Source() {
   const [type, setType] = useState('');
@@ -34,22 +46,21 @@ export default function Source() {
     toggleDrawer();
   };
 
+  const onCopyReturn = () => {
+    onCopy(type, item.name)
+    toggleDrawer()
+  }
+
   const onCopy = (type: string, name: string) => {
     copyToClipboard(`【${type}】— ${name}`);
   };
 
   const copyToClipboard = (text: string) => {
-    // 创建一个临时的input元素
     const tempInput = document.createElement('input');
-    // 设置其值为要复制的文本
     tempInput.value = text;
-    // 将临时input添加到文档中
     document.body.appendChild(tempInput);
-    // 选中input中的文本
     tempInput.select();
-    // 执行复制命令
     document.execCommand('copy');
-    // 移除临时 input
     document.body.removeChild(tempInput);
   };
 
@@ -71,7 +82,7 @@ export default function Source() {
         </section>
 
         <section className="container">
-          {giftList.map(item => (
+          {giftList.map((item, index) => (
             <div key={item.type} className="typeModule">
               <div className="type">
                 <span
@@ -85,7 +96,7 @@ export default function Source() {
               <div className="list">
                 {item.list.map(data => (
                   <li className="item">
-                    <div className="name">{data.name}</div>
+                    <div className="name" style={{color: THEME[index]}}>{data.name}</div>
                     <div className="handle">
                       <span onClick={() => onView(item.type, data)}>详情</span>
                       <span
@@ -124,7 +135,7 @@ export default function Source() {
               <img src={`/${type}/${item.imgSrc}/${name}`} key={name} />
             ))}
           </section>
-          <button className="btn" onClick={toggleDrawer}>
+          <button className="btn" onClick={onCopyReturn}>
             复制并返回
           </button>
         </div>
