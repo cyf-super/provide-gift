@@ -4,6 +4,7 @@ import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
 import giftList from '../../data/gift.json';
 import { motion, useScroll, useSpring } from 'framer-motion';
+import { Toaster, toast } from 'sonner';
 
 type Item = (typeof giftList)[number]['list'][number];
 const THEME = [
@@ -47,9 +48,9 @@ export default function Source() {
   };
 
   const onCopyReturn = () => {
-    onCopy(type, item.name)
-    toggleDrawer()
-  }
+    onCopy(type, item.name);
+    toggleDrawer();
+  };
 
   const onCopy = (type: string, name: string) => {
     copyToClipboard(`【${type}】— ${name}`);
@@ -62,6 +63,14 @@ export default function Source() {
     tempInput.select();
     document.execCommand('copy');
     document.body.removeChild(tempInput);
+    toast.success('复制成功，快去找店小二领取叭~', {
+      style: {
+        background: 'rgba(255,255,255,0.5)',
+        backdropFilter: 'blur(10px)',
+        border: '1px solid rgba(1, 1, 1, 0.25)'
+      },
+      className: styles.toast
+    });
   };
 
   return (
@@ -95,8 +104,10 @@ export default function Source() {
               </div>
               <div className="list">
                 {item.list.map(data => (
-                  <li className="item">
-                    <div className="name" style={{color: THEME[index]}}>{data.name}</div>
+                  <li className="item" key={data.name}>
+                    <div className="name" style={{ color: THEME[index] }}>
+                      {data.name}
+                    </div>
                     <div className="handle">
                       <span onClick={() => onView(item.type, data)}>详情</span>
                       <span
@@ -140,6 +151,19 @@ export default function Source() {
           </button>
         </div>
       </Drawer>
+
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          // unstyled: true,
+          classNames: {
+            error: 'bg-red-400',
+            success: 'text-green-400',
+            warning: 'text-yellow-400',
+            info: 'bg-blue-400'
+          }
+        }}
+      />
     </>
   );
 }

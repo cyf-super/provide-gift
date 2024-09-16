@@ -8,6 +8,7 @@ function App() {
 
   useEffect(() => {
     navigate(`/${tabId}`);
+    console.log('tabId ', tabId);
   }, [tabId]);
 
   return (
@@ -15,28 +16,22 @@ function App() {
       <div className="content">
         <Outlet />
       </div>
-      <Tab tabId={tabId} setTabId={setTabId} />
+      <Tab setTabId={setTabId} />
     </div>
   );
 }
 
-function Tab({
-  tabId,
-  setTabId
-}: {
-  tabId: string;
-  setTabId: (tab: string) => void;
-}) {
+function Tab({ setTabId }: { setTabId: (tab: string) => void }) {
   const tabs = [
     {
       id: 'home',
       name: '首页',
-      icon: tabId === 'home' ? 'homeActive' : 'home'
+      icon: location.hash.slice(2) === 'home' ? 'homeActive' : 'home'
     },
     {
       id: 'sources',
-      name: '资源',
-      icon: tabId === 'sources' ? 'resourceActive' : 'resource'
+      name: '资料',
+      icon: location.hash.slice(2) === 'sources' ? 'resourceActive' : 'resource'
     }
   ];
   return (
@@ -45,7 +40,10 @@ function Tab({
         <div key={tab.name} className="tab" onClick={() => setTabId(tab.id)}>
           <img src={`/tabs/${tab.icon}.svg`} />
           <div
-            className={['name', tabId === tab.id ? 'nameActive' : ''].join(' ')}
+            className={[
+              'name',
+              location.hash.slice(2) === tab.id ? 'nameActive' : ''
+            ].join(' ')}
           >
             {tab.name}
           </div>

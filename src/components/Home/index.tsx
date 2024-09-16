@@ -1,6 +1,7 @@
 import styles from './index.module.scss';
 import daily from '../../data/daily.json';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const visible = { opacity: 1, y: 0, transition: { duration: 0.5 } };
 
@@ -36,12 +37,12 @@ export default function Home() {
             </div>
             <div>您可以任选一份资料【免费赠送】</div>
           </div>
-          <p>非常感谢您</p>
+          <p>越来越好</p>
         </motion.header>
         <motion.section className="yijvBox" variants={itemVariants}>
           <div className="yijv">每日一句</div>
           <div
-            dangerouslySetInnerHTML={{ __html: daily[new Date().getDay()] }}
+            dangerouslySetInnerHTML={{ __html: daily[new Date().getDate()] }}
             className="detail"
           ></div>
         </motion.section>
