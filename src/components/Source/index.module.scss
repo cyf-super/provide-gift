@@ -1,6 +1,19 @@
 .box {
   background: none;
   :global {
+    .numSources {
+      text-align: center;
+      margin: 5px auto;
+      font-size: 20px;
+      padding: 12px;
+      border: 2px solid #2b63e5;
+      border-radius: 12px;
+      background: #90c5f9;
+      span {
+        font-weight: 700;
+        font-size: 28px;
+      }
+    }
     .progressBar {
       position: fixed;
       top: 0;
@@ -43,6 +56,36 @@
         font-size: 18px;
         .type {
           margin: 12px 12px 0 0;
+        }
+      }
+    }
+    .search {
+      position: relative;
+      margin-top: 12px;
+      border-radius: 120px;
+      display: flex;
+      span {
+        position: absolute;
+        left: 8px;
+        top: 8px;
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAMAAACf4xmcAAAAOVBMVEUAAAA4ODg0NDQzMzMzMzMwMDAzMzM0NDQyMjIzMzMzMzM0NDQzMzM0NDQyMjI0NDQzMzMzMzMzMzMmlKXLAAAAEnRSTlMAIM/hwRCfQGCzi4B0WDgsUO/hZcuAAAABEklEQVQ4y42USQKDIAxFmamiiLn/YUsCLQoC/g1KnhkwhN20r4sEkMu6s668gYuMf4QOAZXE0VIbPGirIK2ApFzgWnPrRH7XN0qkTVu2uEmBrxz5kgkqoKRPq7wUZ5W4uOV3kPeKKVF+9QqMmH3VcYsDD1FEtbJoS+eMJRnWkfobs7OBO/rbKfzIHfbBGlfXx1w0r3Fd4mr7WIjmJa6SUuuK42nlCnQf02h/ib0OSiWEPmaxhPcHslNTdSXoeHMNdpQa0JMZuSt94cndwJl/25alyVUvfzhuV0a0V0ZVV1rBQ1wrAfVprrPhFwg/bbi8KZzF4RAcvhduNmo+iZsOrsxNx2DmpkOVuJPNRJxkcwV5hi9z+B03H6YAmwAAAABJRU5ErkJggg==)
+          center/100% 100% no-repeat;
+      }
+      input {
+        max-width: 100%;
+        border: 1px solid #333;
+        flex: 1;
+        height: 30px;
+        outline: none;
+        font-size: 14px;
+        padding: 0 12px 0 30px;
+        border-radius: 120px;
+        &:focus {
+          border-color: #2b63e5;
+          box-shadow: 3px 3px 10px 3px #ddd;
         }
       }
     }

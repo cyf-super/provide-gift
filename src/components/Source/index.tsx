@@ -1,10 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './index.module.scss';
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
 import giftList from '../../data/gift.json';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useSpring,
+  useTransform
+} from 'framer-motion';
 import { Toaster, toast } from 'sonner';
+import { debounce } from '../../utils/tools';
 
 type Item = (typeof giftList)[number]['list'][number];
 const THEME = [
@@ -23,7 +30,10 @@ const THEME = [
 export default function Source() {
   const [type, setType] = useState('');
   const [item, setItem] = useState<Item>({} as Item);
+  const [list, setList] = useState<typeof giftList>([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [value, setValue] = useState('');
+  const [num, setNum] = useState(0);
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -31,6 +41,15 @@ export default function Source() {
     damping: 30,
     restDelta: 0.001
   });
+
+  useEffect(() => {
+    setList(giftList);
+    const data = giftList.reduce((res, itemList) => {
+      res += itemList.list.length;
+      return res;
+    }, 0);
+    setNum(data);
+  }, []);
 
   const toggleDrawer = () => {
     const newState = !isOpen;
@@ -73,16 +92,52 @@ export default function Source() {
     });
   };
 
+  const onSearch = (value: string) => {
+    setValue(value);
+    if (value.trim()) {
+      searchList(value.trim());
+    } else {
+      setTimeout(() => {
+        setList(giftList);
+        console.log('定时器');
+      }, 400);
+    }
+  };
+
+  const searchCallback = (value: string) => {
+    const newList: typeof giftList = [];
+    giftList.forEach(typeList => {
+      const l = typeList.list.filter(item => {
+        const patt = new RegExp(value, 'i');
+        return patt.test(item.name);
+      });
+      if (l.length) {
+        newList.push({
+          list: l,
+          type: typeList.type
+        });
+      }
+    });
+    console.log(value, newList);
+    setList(newList);
+  };
+
+  const searchList = debounce(searchCallback);
+
   return (
     <>
       <div className={styles.box}>
+        <motion.div className="numSources">
+          资源数量：
+          <AnimatedNumber value={num} />
+        </motion.div>
         <motion.div className="progressBar" style={{ scaleX }} />
         <section className="typesBox">
           <div className="title">
             <span>类型</span>
           </div>
           <div className="types">
-            {giftList.map(item => (
+            {list.map(item => (
               <div key={item.type} className="type">
                 {item.type}
               </div>
@@ -90,39 +145,60 @@ export default function Source() {
           </div>
         </section>
 
-        <section className="container">
-          {giftList.map((item, index) => (
-            <div key={item.type} className="typeModule">
-              <div className="type">
-                <span
-                  className="icon"
-                  style={{
-                    background: `url(/icons/${item.type}.svg) center/100% 100% no-repeat`
-                  }}
-                ></span>
-                {item.type}
-              </div>
-              <div className="list">
-                {item.list.map(data => (
-                  <li className="item" key={data.name}>
-                    <div className="name" style={{ color: THEME[index] }}>
-                      {data.name}
-                    </div>
-                    <div className="handle">
-                      <span onClick={() => onView(item.type, data)}>详情</span>
-                      <span
-                        className="copy"
-                        onClick={() => onCopy(item.type, data.name)}
-                      >
-                        复制
-                      </span>
-                    </div>
-                  </li>
-                ))}
-              </div>
-            </div>
-          ))}
+        <section className="search">
+          <span></span>
+          <input
+            type="text"
+            placeholder="搜索资源"
+            value={value}
+            onChange={e => onSearch(e.target.value)}
+          />
         </section>
+
+        <motion.div
+          layout
+          layoutId={'list'}
+          className="list-container"
+          id="list"
+        >
+          <section className="container">
+            <AnimatePresence>
+              {list.map((item, index) => (
+                <div key={item.type} className="typeModule">
+                  <div className="type">
+                    <span
+                      className="icon"
+                      style={{
+                        background: `url(/icons/${item.type}.svg) center/100% 100% no-repeat`
+                      }}
+                    ></span>
+                    {item.type}
+                  </div>
+                  <div className="list">
+                    {item.list.map(data => (
+                      <li className="item" key={data.name}>
+                        <div className="name" style={{ color: THEME[index] }}>
+                          {data.name}
+                        </div>
+                        <div className="handle">
+                          <span onClick={() => onView(item.type, data)}>
+                            详情
+                          </span>
+                          <span
+                            className="copy"
+                            onClick={() => onCopy(item.type, data.name)}
+                          >
+                            复制
+                          </span>
+                        </div>
+                      </li>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </AnimatePresence>
+          </section>
+        </motion.div>
       </div>
 
       <Drawer
@@ -166,4 +242,17 @@ export default function Source() {
       />
     </>
   );
+}
+
+function AnimatedNumber({ value }: { value: number }) {
+  let spring = useSpring(value, { mass: 0.8, stiffness: 75, damping: 15 });
+  let display = useTransform(spring, current =>
+    Math.round(current).toLocaleString()
+  );
+
+  useEffect(() => {
+    spring.set(value);
+  }, [spring, value]);
+
+  return <motion.span>{display}</motion.span>;
 }

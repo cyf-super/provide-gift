@@ -36,7 +36,7 @@ export default function Home() {
             </div>
             <div>您可以任选一份资料【免费赠送】</div>
           </div>
-          <p>希望能够对您有帮助～</p>
+          <p>希望能够帮有您～</p>
         </motion.header>
         <motion.section className="yijvBox" variants={itemVariants}>
           <div className="yijv">每日一句</div>
@@ -46,7 +46,7 @@ export default function Home() {
           ></div>
         </motion.section>
         <motion.section className="explain">
-          保持更新，每周都会添加新资源~
+          1.保持更新，每周都会添加新资源~
         </motion.section>
       </motion.div>
     </>
