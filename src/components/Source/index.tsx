@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import styles from './index.module.scss';
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
@@ -11,7 +11,6 @@ import {
   useTransform
 } from 'framer-motion';
 import { Toaster, toast } from 'sonner';
-import { debounce } from '../../utils/tools';
 
 type Item = (typeof giftList)[number]['list'][number];
 const THEME = [
@@ -27,6 +26,8 @@ const THEME = [
   '#db5e04'
 ];
 
+const SCROLL_TOP = 1600;
+
 export default function Source() {
   const [type, setType] = useState('');
   const [item, setItem] = useState<Item>({} as Item);
@@ -34,6 +35,7 @@ export default function Source() {
   const [isOpen, setIsOpen] = useState(false);
   const [value, setValue] = useState('');
   const [num, setNum] = useState(0);
+  const [showScroll, setShowScroll] = useState(false);
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -44,12 +46,25 @@ export default function Source() {
 
   useEffect(() => {
     setList(giftList);
-    const data = giftList.reduce((res, itemList) => {
+
+    window.addEventListener('scroll', scrollHandle);
+    return () => {
+      window.removeEventListener('scroll', scrollHandle);
+    };
+  }, []);
+
+  useEffect(() => {
+    const data = list.reduce((res, itemList) => {
       res += itemList.list.length;
       return res;
     }, 0);
     setNum(data);
-  }, []);
+  }, [list.length]);
+
+  function scrollHandle() {
+    const top = document.documentElement.scrollTop;
+    setShowScroll(top > SCROLL_TOP);
+  }
 
   const toggleDrawer = () => {
     const newState = !isOpen;
@@ -94,17 +109,12 @@ export default function Source() {
 
   const onSearch = (value: string) => {
     setValue(value);
-    if (value.trim()) {
-      searchList(value.trim());
-    } else {
-      setTimeout(() => {
-        setList(giftList);
-        console.log('定时器');
-      }, 400);
+    if (!value.trim()) {
+      setList(giftList);
     }
   };
 
-  const searchCallback = (value: string) => {
+  const searchList = useCallback((value: string) => {
     const newList: typeof giftList = [];
     giftList.forEach(typeList => {
       const l = typeList.list.filter(item => {
@@ -120,9 +130,19 @@ export default function Source() {
     });
     console.log(value, newList);
     setList(newList);
+  }, []);
+
+  const onScroll = (id: string) => {
+    const node = document.getElementById(id);
+    node?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const searchList = debounce(searchCallback);
+  const onScrollTop = () => {
+    window.scrollTo({
+      behavior: 'smooth',
+      top: 0
+    });
+  };
 
   return (
     <>
@@ -135,10 +155,15 @@ export default function Source() {
         <section className="typesBox">
           <div className="title">
             <span>类型</span>
+            <span className="explain">点击滚动到对应类别</span>
           </div>
           <div className="types">
             {list.map(item => (
-              <div key={item.type} className="type">
+              <div
+                key={item.type}
+                className="type"
+                onClick={() => onScroll(item.type)}
+              >
                 {item.type}
               </div>
             ))}
@@ -146,13 +171,15 @@ export default function Source() {
         </section>
 
         <section className="search">
-          <span></span>
+          <span className="searchIcon"></span>
+          <span className="clearIcon"></span>
           <input
             type="text"
             placeholder="搜索资源"
             value={value}
             onChange={e => onSearch(e.target.value)}
           />
+          <button onClick={() => searchList(value.trim())}>搜索</button>
         </section>
 
         <motion.div
@@ -164,7 +191,7 @@ export default function Source() {
           <section className="container">
             <AnimatePresence>
               {list.map((item, index) => (
-                <div key={item.type} className="typeModule">
+                <div key={item.type} className="typeModule" id={item.type}>
                   <div className="type">
                     <span
                       className="icon"
@@ -175,10 +202,10 @@ export default function Source() {
                     {item.type}
                   </div>
                   <div className="list">
-                    {item.list.map(data => (
+                    {item.list.map((data, i) => (
                       <li className="item" key={data.name}>
                         <div className="name" style={{ color: THEME[index] }}>
-                          {data.name}
+                          {i + 1}.{data.name}
                         </div>
                         <div className="handle">
                           <span onClick={() => onView(item.type, data)}>
@@ -196,6 +223,9 @@ export default function Source() {
                   </div>
                 </div>
               ))}
+              {showScroll && (
+                <div className="scrollTop" onClick={onScrollTop}></div>
+              )}
             </AnimatePresence>
           </section>
         </motion.div>
@@ -218,6 +248,7 @@ export default function Source() {
             <div>大纲和目录</div>
           </div>
           <section>
+            {item.detail && <p>{item.detail}</p>}
             {item.images?.map(name => (
               <img src={`/${type}/${item.imgSrc}/${name}`} key={name} />
             ))}
