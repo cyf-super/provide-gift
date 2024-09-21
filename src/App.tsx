@@ -8,7 +8,6 @@ function App() {
 
   useEffect(() => {
     navigate(`/${tabId}`);
-    console.log('tabId ', tabId);
   }, [tabId]);
 
   return (

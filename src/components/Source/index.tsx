@@ -15,7 +15,7 @@ import { Toaster, toast } from 'sonner';
 type Item = (typeof giftList)[number]['list'][number];
 const THEME = [
   '#0990ff',
-  '#FF8449',
+  '#3484b2',
   '#4CC410',
   '#e5983a',
   '#059581',
@@ -128,7 +128,6 @@ export default function Source() {
         });
       }
     });
-    console.log(value, newList);
     setList(newList);
   }, []);
 
@@ -205,7 +204,7 @@ export default function Source() {
                     {item.list.map((data, i) => (
                       <li className="item" key={data.name}>
                         <div className="name" style={{ color: THEME[index] }}>
-                          {i + 1}.{data.name}
+                          {i + 1}. {data.name}
                         </div>
                         <div className="handle">
                           <span onClick={() => onView(item.type, data)}>
