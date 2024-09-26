@@ -48,9 +48,9 @@ export default function Home() {
         <motion.section className="explain">
           1.喜欢的资源，复制名称后找店小二领取呢
           <br />
-          2.保持更新，每周都会新增资源
+          2.保持更新，每周都会新增资源，敬请期待
           <br />
-          3.百分之百免费，发百度网盘
+          3.百分之百免费，发百度网盘哦
         </motion.section>
       </motion.div>
     </>

@@ -12,7 +12,19 @@ import {
 } from 'framer-motion';
 import { Toaster, toast } from 'sonner';
 
-type Item = (typeof giftList)[number]['list'][number];
+interface ListItem {
+  type: string
+  list: Item[]
+}
+
+type Item = {
+  name: string
+  imgSrc: string
+  images: string[]
+  detail?: string
+  new?: boolean
+  hot?: boolean
+};
 const THEME = [
   '#0990ff',
   '#3484b2',
@@ -31,7 +43,7 @@ const SCROLL_TOP = 1600;
 export default function Source() {
   const [type, setType] = useState('');
   const [item, setItem] = useState<Item>({} as Item);
-  const [list, setList] = useState<typeof giftList>([]);
+  const [list, setList] = useState<ListItem[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [value, setValue] = useState('');
   const [num, setNum] = useState(0);
@@ -204,7 +216,7 @@ export default function Source() {
                     {item.list.map((data, i) => (
                       <li className="item" key={data.name}>
                         <div className="name" style={{ color: THEME[index] }}>
-                          {i + 1}. {data.name}
+                          {i + 1}. {data.name}{data.new && <span className='new'></span>}{data.hot && <span className='hot'></span>}
                         </div>
                         <div className="handle">
                           <span onClick={() => onView(item.type, data)}>

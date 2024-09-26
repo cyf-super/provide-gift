@@ -145,6 +145,23 @@
               padding: 8px;
               display: flex;
               align-items: center;
+              flex-wrap: wrap;
+              .new {
+                flex-shrink: 0;
+                display: inline-block;
+                width: 35px;
+                height: 35px;
+                margin-left: 2px;
+                background: url(../../assets/zuixin.png) center/100% 100% no-repeat;
+              }
+              .hot {
+                flex-shrink: 0;
+                display: inline-block;
+                width: 23px;
+                height: 23px;
+                margin-left: 2px;
+                background: url(../../assets/remen_1.png) center/100% 100% no-repeat;
+              }
             }
             .handle {
               font-size: 14px;
