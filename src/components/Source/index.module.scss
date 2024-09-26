@@ -146,6 +146,7 @@
               display: flex;
               align-items: center;
               flex-wrap: wrap;
+              white-space: nowrap;
               .new {
                 flex-shrink: 0;
                 display: inline-block;
