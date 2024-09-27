@@ -11,19 +11,20 @@ import {
   useTransform
 } from 'framer-motion';
 import { Toaster, toast } from 'sonner';
+// import { SelectBox } from '../common/Menu';
 
 interface ListItem {
-  type: string
-  list: Item[]
+  type: string;
+  list: Item[];
 }
 
 type Item = {
-  name: string
-  imgSrc: string
-  images: string[]
-  detail?: string
-  new?: boolean
-  hot?: boolean
+  name: string;
+  imgSrc: string;
+  images: string[];
+  detail?: string;
+  new?: boolean;
+  hot?: boolean;
 };
 const THEME = [
   '#0990ff',
@@ -37,6 +38,21 @@ const THEME = [
   '#777b00',
   '#db5e04'
 ];
+
+// const OPTIONS = [
+//   {
+//     label: '全部',
+//     value: 'all'
+//   },
+//   {
+//     label: '最新',
+//     value: 'new'
+//   },
+//   {
+//     label: '热门',
+//     value: 'hot'
+//   }
+// ];
 
 const SCROLL_TOP = 1600;
 
@@ -182,6 +198,7 @@ export default function Source() {
         </section>
 
         <section className="search">
+          {/* <SelectBox value={} onSelect={} OPTIONS={OPTIONS}></SelectBox> */}
           <span className="searchIcon"></span>
           <span className="clearIcon"></span>
           <input
@@ -216,7 +233,11 @@ export default function Source() {
                     {item.list.map((data, i) => (
                       <li className="item" key={data.name}>
                         <div className="name" style={{ color: THEME[index] }}>
-                          {i + 1}. {data.name}{data.new && <span className='new'></span>}{data.hot && <span className='hot'></span>}
+                          <div>
+                            {i + 1}. {data.name}
+                            {data.new && <span className="new"></span>}
+                            {data.hot && <span className="hot"></span>}
+                          </div>
                         </div>
                         <div className="handle">
                           <span onClick={() => onView(item.type, data)}>

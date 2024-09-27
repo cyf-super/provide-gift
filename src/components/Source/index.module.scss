@@ -82,9 +82,9 @@
         max-width: 100%;
         border: 1px solid #333;
         flex: 1;
-        height: 30px;
+        height: 32px;
         outline: none;
-        font-size: 14px;
+        font-size: 16px;
         padding: 0 12px 0 32px;
         border-radius: 120px;
         &:focus {
@@ -94,8 +94,9 @@
       }
       button {
         padding: 0;
-        width: 50px;
-        height: 30px;
+        width: 60px;
+        flex-shrink: 0;
+        height: 32px;
         font-size: 14px;
         line-height: 30px;
         margin-left: 12px;
@@ -144,24 +145,26 @@
               flex: 1;
               padding: 8px;
               display: flex;
-              align-items: center;
+              align-content: center;
               flex-wrap: wrap;
-              white-space: nowrap;
               .new {
                 flex-shrink: 0;
                 display: inline-block;
-                width: 35px;
-                height: 35px;
+                width: 30px;
+                height: 16px;
                 margin-left: 2px;
-                background: url(../../assets/zuixin.png) center/100% 100% no-repeat;
+                background: url(../../assets/zuixin_.png) center/100% 100%
+                  no-repeat;
               }
               .hot {
                 flex-shrink: 0;
                 display: inline-block;
-                width: 23px;
-                height: 23px;
-                margin-left: 2px;
-                background: url(../../assets/remen_1.png) center/100% 100% no-repeat;
+                width: 22px;
+                height: 22px;
+                margin-left: 5px;
+                margin-bottom: -3px;
+                background: url(../../assets/remen_1.png) center/100% 100%
+                  no-repeat;
               }
             }
             .handle {
