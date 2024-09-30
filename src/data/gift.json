@@ -36,6 +36,18 @@
         "hot": true
       },
       {
+        "name": "高手的黑箱：AI时代学习、思考与创作",
+        "imgSrc": "AI时代学习",
+        "images": ["详情.jpg", "详情1.jpg"],
+        "new": true
+      },
+      {
+        "name": "菜心设计师人人必备的AI视觉课程",
+        "imgSrc": "AI视觉课程",
+        "images": ["详情.jpg", "详情1.jpg", "详情2.jpg", "详情3.jpg"],
+        "new": true
+      },
+      {
         "name": "谈AI时代的家庭教育",
         "imgSrc": "AI时代的家庭教育",
         "images": ["详情.jpg", "详情1.jpg"],
@@ -97,12 +109,26 @@
         "name": "快刀青衣《给职场人的AI写作课》",
         "imgSrc": "AI写作课",
         "images": ["详情.jpg"]
+      },
+      {
+        "name": "如何用AI辅助高效写公文16讲（完结）",
+        "imgSrc": "AI辅助高效写公文",
+        "images": ["详情.jpg"],
+        "detail": "",
+        "new": true
       }
     ]
   },
   {
     "type": "技能提升",
     "list": [
+      {
+        "name": "虚空光影炮长《剪辑工具人课》",
+        "imgSrc": "剪辑工具人",
+        "images": ["详情.jpg"],
+        "new": true,
+        "hot": true
+      },
       {
         "name": "Final Cut Pro X 视频剪辑系统课",
         "imgSrc": "Final Cut Pro X",
@@ -145,6 +171,13 @@
         "imgSrc": "Word从小白到精通",
         "images": ["详情.jpg"],
         "hot": true
+      },
+      {
+        "name": "Excel高效办公：数据图表篇",
+        "imgSrc": "Excel高效办公",
+        "images": ["详情.jpg"],
+        "hot": true,
+        "new": true
       },
       {
         "name": "《Word高效工作指南教程》",
@@ -217,6 +250,18 @@
     "type": "计算机",
     "list": [
       {
+        "name": "小白玩转AI大模型应用开发",
+        "imgSrc": "玩转AI大模型",
+        "images": [
+          "详情.jpg",
+          "详情1.jpg",
+          "详情2.jpg",
+          "详情3.jpg",
+          "详情4.jpg"
+        ],
+        "new": true
+      },
+      {
         "name": "大话HTTP协议 漫画+图解打造的编程基础课程(完结)",
         "imgSrc": "大话HTTP协议",
         "images": ["详情.jpg", "详情1.jpg", "详情2.jpg"],
@@ -282,6 +327,12 @@
         "name": "超级符号就是超级创意",
         "imgSrc": "超级符号",
         "images": ["详情.jpg"]
+      },
+      {
+        "name": "传神文案",
+        "imgSrc": "传神文案",
+        "images": ["详情.jpg"],
+        "new": true
       },
       {
         "name": "《爆款文案》",
@@ -607,6 +658,12 @@
   {
     "type": "其它",
     "list": [
+      {
+        "name": "Excel函数活用范例大辞典 全新版",
+        "imgSrc": "Excel函数",
+        "detail": "[V版]Excel函数活用范例大辞典 全新版.pdf",
+        "new": true
+      },
       {
         "name": "无器械徒手燃脂教程",
         "imgSrc": "徒手燃脂教程",
