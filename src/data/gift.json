@@ -3,11 +3,18 @@
     "type": "AI",
     "list": [
       {
+        "name": "AI认知课+AI工具实战课",
+        "imgSrc": "AI工具实战课",
+        "images": ["详情.jpg", "详情1.jpg", "详情2.jpg", "详情3.jpg"],
+        "detail": "",
+        "new": true,
+        "hot": true
+      },
+      {
         "name": "AI时代的弯道超车",
         "imgSrc": "AI时代的弯道超车",
         "images": ["详情.jpg", "详情1.jpg"],
         "detail": "",
-        "new": true,
         "hot": true
       },
       {
@@ -26,7 +33,6 @@
         "name": "怎样用AI做PPT（完结）",
         "imgSrc": "用AI做PPT",
         "images": ["详情.jpg"],
-        "new": true,
         "hot": true
       },
       {
@@ -39,14 +45,12 @@
         "name": "AI辅助设计训练营：基础入门与初步应用课程+深入实战课程",
         "imgSrc": "AI辅助设计训练营",
         "images": ["详情.jpg", "详情1.jpg"],
-        "new": true,
         "hot": true
       },
       {
         "name": "AI进化社·AI商业生财实战课，人人都能上手的AI商业变现课",
         "imgSrc": "AI商业生财",
         "images": ["详情.jpg"],
-        "new": true,
         "hot": true
       },
       {
@@ -102,8 +106,7 @@
       {
         "name": "Final Cut Pro X 视频剪辑系统课",
         "imgSrc": "Final Cut Pro X",
-        "images": ["详情.jpg", "详情1.jpg"],
-        "new": true
+        "images": ["详情.jpg", "详情1.jpg"]
       },
       {
         "name": "万门大学-世界记忆大师教你快速提升记忆力",
@@ -118,12 +121,19 @@
       {
         "name": "季冠霖声音训练课：魅力脱口而出(完结）",
         "imgSrc": "声音训练课",
-        "images": ["详情.jpg"]
+        "images": ["详情.jpg"],
+        "hot": true
       },
       {
         "name": "系统且万能的PS后期方法揭秘",
         "imgSrc": "PS后期方法揭秘",
         "images": ["详情.jpg"]
+      },
+      {
+        "name": "《PS从入门到精通》【视频30讲·教学】",
+        "imgSrc": "PS从入门到精通",
+        "images": ["详情.jpg", "详情1.jpg"],
+        "hot": true
       },
       {
         "name": "《Excel 中文电子表格一本通》24小时零基础通关",
@@ -133,7 +143,8 @@
       {
         "name": "《Word高效办公：从小白到精通》视频+课件",
         "imgSrc": "Word从小白到精通",
-        "images": ["详情.jpg"]
+        "images": ["详情.jpg"],
+        "hot": true
       },
       {
         "name": "《Word高效工作指南教程》",
@@ -141,9 +152,10 @@
         "images": ["详情.jpg"]
       },
       {
-        "name": "如何成为演讲高手【音频】",
-        "imgSrc": "演讲高手",
-        "images": ["详情.jpg"]
+        "name": "互联网人必备的12种Excel技能",
+        "imgSrc": "12种Excel技能",
+        "images": ["详情.jpg"],
+        "new": true
       },
       {
         "name": "Excel公式 函数教程【视频】",
@@ -156,20 +168,32 @@
         "images": ["详情.jpg", "详情1.jpg"]
       },
       {
+        "name": "【PPT教程】征服老板：零基础做出高逼格PPT",
+        "imgSrc": "PPT教程",
+        "images": ["详情.jpg", "详情1.jpg"],
+        "new": true
+      },
+      {
         "name": "《零基础读懂财务报表》【视频·教学】",
         "imgSrc": "零基础读懂财务",
         "images": ["详情.jpg", "详情1.jpg"]
       },
       {
-        "name": "《PS从入门到精通》【视频30讲·教学】",
-        "imgSrc": "PS从入门到精通",
-        "images": ["详情.jpg", "详情1.jpg"]
+        "name": "如何成为演讲高手【音频】",
+        "imgSrc": "演讲高手",
+        "images": ["详情.jpg"]
       }
     ]
   },
   {
     "type": "财商-创业",
     "list": [
+      {
+        "name": "【互联网+】时代创新密码20讲",
+        "imgSrc": "时代创新密码",
+        "images": ["详情.jpg"],
+        "new": true
+      },
       {
         "name": "徐远的房产财富42讲",
         "imgSrc": "房产财富42讲",
@@ -192,6 +216,43 @@
   {
     "type": "计算机",
     "list": [
+      {
+        "name": "大话HTTP协议 漫画+图解打造的编程基础课程(完结)",
+        "imgSrc": "大话HTTP协议",
+        "images": ["详情.jpg", "详情1.jpg", "详情2.jpg"],
+        "new": true
+      },
+      {
+        "name": "顶级互联网工程师的计算机思维课(完结)",
+        "imgSrc": "计算机思维课",
+        "images": ["详情.jpg"],
+        "new": true,
+        "hot": true
+      },
+      {
+        "name": "网易产品经理视频课程全集",
+        "imgSrc": "网易产品经理",
+        "images": ["详情.jpg", "详情1.jpg", "详情2.jpg"],
+        "new": true
+      },
+      {
+        "name": "【慕课】中高级开发晋升利器 MySQL面试指南",
+        "imgSrc": "MySQL面试指南",
+        "images": ["详情.jpg"],
+        "new": true
+      },
+      {
+        "name": "路飞学城IT《10个Python完整小项目教你爬虫》",
+        "imgSrc": "10个Python爬虫",
+        "images": ["详情.jpg", "详情1.jpg"],
+        "new": true
+      },
+      {
+        "name": "YOLOv5改进：添加注意力机制",
+        "imgSrc": "YOLOv5改进",
+        "images": ["详情.jpg"],
+        "new": true
+      },
       {
         "name": "蜗牛学院《轻松入门Python数据分析》",
         "imgSrc": "Python数据分析",
@@ -220,13 +281,11 @@
       {
         "name": "超级符号就是超级创意",
         "imgSrc": "超级符号",
-        "new": true,
         "images": ["详情.jpg"]
       },
       {
         "name": "《爆款文案》",
         "imgSrc": "爆款文案",
-        "new": true,
         "images": ["详情.jpg"]
       },
       {
@@ -284,6 +343,19 @@
   {
     "type": "人生成长",
     "list": [
+      {
+        "name": "蔡康永的201堂情商课（完结）",
+        "imgSrc": "蔡康永",
+        "images": [
+          "详情.jpg",
+          "详情1.jpg",
+          "详情2.jpg",
+          "详情3.jpg",
+          "详情4.jpg"
+        ],
+        "detail": "仅展示部分",
+        "new": true
+      },
       {
         "name": "为你打开独一无二的人生说明书",
         "imgSrc": "人生说明书",
@@ -424,8 +496,26 @@
   },
 
   {
-    "type": "模板",
+    "type": "模板-素材",
     "list": [
+      {
+        "name": "近万种ps样式合集",
+        "imgSrc": "ps样式合集",
+        "images": [
+          "详情.jpg",
+          "详情1.jpg",
+          "详情2.jpg",
+          "详情3.jpg",
+          "详情4.jpg"
+        ],
+        "new": true
+      },
+      {
+        "name": "企业宣传片音乐BGM收集",
+        "imgSrc": "企业宣传片",
+        "images": ["详情.jpg", "详情1.jpg", "详情2.jpg"],
+        "new": true
+      },
       {
         "name": "160套收费高质量毕业答辩PPT模板",
         "imgSrc": "答辩PPT模板",
@@ -451,6 +541,12 @@
   {
     "type": "职场-社交",
     "list": [
+      {
+        "name": "销售训练建立销售基础专业能力",
+        "imgSrc": "销售基础专业能力",
+        "images": ["详情.jpg", "详情1.jpg"],
+        "new": true
+      },
       {
         "name": "销售系统班 销售模式篇",
         "imgSrc": "销售系统班",
@@ -512,10 +608,21 @@
     "type": "其它",
     "list": [
       {
+        "name": "无器械徒手燃脂教程",
+        "imgSrc": "徒手燃脂教程",
+        "images": ["详情.jpg"],
+        "new": true
+      },
+      {
+        "name": "雷军2020-2024年度演讲全文",
+        "imgSrc": "雷军年度演讲",
+        "images": ["详情.jpg"],
+        "new": true
+      },
+      {
         "name": "《让孩子学会自律的30个有效方法》（31集）【音频】",
         "imgSrc": "让孩子学会自律的30个有效方法",
-        "images": ["详情.jpg", "详情1.jpg"],
-        "new": true
+        "images": ["详情.jpg", "详情1.jpg"]
       },
       {
         "name": "表情包-20000+款聊天斗图必备表情包大合集",
@@ -550,8 +657,7 @@
       {
         "name": "《如果你想过1%的生活》",
         "imgSrc": "如果你想过1%的生活",
-        "images": ["详情.jpg"],
-        "new": true
+        "images": ["详情.jpg"]
       }
     ]
   }

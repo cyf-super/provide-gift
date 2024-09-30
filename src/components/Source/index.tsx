@@ -143,7 +143,7 @@ export default function Source() {
   };
 
   const searchList = useCallback((value: string) => {
-    const newList: typeof giftList = [];
+    const newList: ListItem[] = [];
     giftList.forEach(typeList => {
       const l = typeList.list.filter(item => {
         const patt = new RegExp(value, 'i');
@@ -279,8 +279,10 @@ export default function Source() {
             <span className="closeIcon" onClick={toggleDrawer}></span>
             <div>大纲和目录</div>
           </div>
-          <section>
+          <section className="detail">
             {item.detail && <p>{item.detail}</p>}
+          </section>
+          <section className="imgBox">
             {item.images?.map(name => (
               <img src={`/${type}/${item.imgSrc}/${name}`} key={name} />
             ))}

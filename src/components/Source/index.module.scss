@@ -152,7 +152,8 @@
                 display: inline-block;
                 width: 30px;
                 height: 16px;
-                margin-left: 2px;
+                margin-left: 5px;
+                margin-bottom: -2px;
                 background: url(../../assets/zuixin_.png) center/100% 100%
                   no-repeat;
               }
@@ -232,10 +233,16 @@
         background: url(../../assets/return.svg) center/100% 100% no-repeat;
       }
     }
-    section {
+    .detail {
+      width: 100%;
+      margin: 0 16px -16px;
+      margin-left: 52px;
+    }
+    .imgBox {
       margin: 16px;
       box-shadow: 0 3px 14px 4.5px #dbdbdb;
       border-radius: 8px;
+      font-size: 0;
 
       img {
         width: 100%;
