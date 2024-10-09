@@ -37,6 +37,12 @@
         .nameActive {
           color: #477bf7;
         }
+        &:nth-child(2) {
+          img {
+            width: 21px;
+            height: 21px;
+          }
+        }
       }
     }
   }
